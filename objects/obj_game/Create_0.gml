@@ -5,6 +5,9 @@
 enum GAMESTATE {
 	normal,
 	transition,
+	menu,
+	battle_menu,
+	battling,
 }
 
 enum DUNGEON {
@@ -66,6 +69,9 @@ player_y = 0;
 //Collectibles
 coins = 0;
 coin_fade = 0;
+
+//Menu
+menu_time = 0;
 
 //Camera
 cam_x = draw_x - (camera_get_view_width(cam) / 2);

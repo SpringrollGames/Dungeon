@@ -8,7 +8,7 @@ for(var j = max(0, current_dungeon - 1); (j <= current_dungeon + 1 && j < ds_lis
 	var _off_y = _diff * S;
 	if (_diff == 0 || _alpha != 0) {
 		for(var i = 0; i < array_height_2d(_a); i++) {
-			for(var m = 0; m < array_length_2d(_a, 0); m++) {
+			for(var m = 0; m < array_length_2d(_a, i); m++) {
 				var _tile = _a[i, m];
 				var _item = _i[i, m];
 				switch(_tile) {

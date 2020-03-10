@@ -1,5 +1,10 @@
 /// @description
+var _rl = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
+var _ud = keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up);
+var _m = keyboard_check_pressed(ord("C"));
+
 switch(state) {
+	#region NORMAL
 	case GAMESTATE.normal:
 		//Player
 		var _dungeon = dungeons[| current_dungeon];
@@ -8,9 +13,6 @@ switch(state) {
 		var _dw = array_height_2d(_a);
 		var _dh = array_length_2d(_a, 0);
 		
-		var _rl = keyboard_check_pressed(vk_right) - keyboard_check_pressed(vk_left);
-		var _ud = keyboard_check_pressed(vk_down) - keyboard_check_pressed(vk_up);
-
 		if (player_x + _rl >= 0 &&
 			player_x + _rl <= _dw - 1 && 
 			_a[player_x + _rl, player_y] != TILE.none) {
@@ -25,11 +27,12 @@ switch(state) {
 		player_x = clamp(player_x, 0, _dw - 1);
 		player_y = clamp(player_y, 0, _dh - 1);
 
+		var _breakout = false;
+
 		//Tiles
 		if (_rl != 0 || _ud != 0) {
 			var _tile = _a[player_x, player_y];
 			var _item = _i[@ player_x, player_y];
-			var _breakout = false;
 			if not (_breakout) {
 				switch(_tile) {
 					case TILE.door:
@@ -56,7 +59,19 @@ switch(state) {
 				}
 			}
 		}
+		
+		//Menu opening
+		if not (_breakout) {
+			menu_time = lerp(menu_time, 0, 0.2);
+			if (_m) {
+				state = GAMESTATE.menu;
+				menu_time = 0;
+				_breakout = true;
+			}
+		}
 		break;
+	#endregion
+	#region TRANSITION
 	case GAMESTATE.transition:
 		//Transitions
 		if (abs((draw_x / 16) - player_x) < 0.05 && abs((draw_y / 16) - player_y) < 0.05) {
@@ -67,6 +82,15 @@ switch(state) {
 			}
 		}
 		break;
+	#endregion
+	#region MENU
+	case GAMESTATE.menu:
+		menu_time = lerp(menu_time, 1, 0.1);
+		if (_m) {
+			state = GAMESTATE.normal;
+		}
+		break;
+	#endregion
 }
 
 //Update animations

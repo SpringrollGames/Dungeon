@@ -79,6 +79,14 @@
             }
         },
         {
+            "Key": "3f9f56a1-5c75-458f-ada3-b80076fc97fb",
+            "Value": {
+                "id": "af2a8c69-0426-4288-9639-7d4f38c70350",
+                "resourcePath": "fonts\\fnt_big\\fnt_big.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "4123c5a6-40da-4d2d-9094-fa75c04e9612",
             "Value": {
                 "id": "305540c4-9cb9-4eac-ba98-e4f21c104a6d",
@@ -292,6 +300,14 @@
                 "id": "2f9bd035-c25f-4ccb-a532-843fc4bcf521",
                 "resourcePath": "views\\dd779416-ba4e-4c03-8f49-dc764dc2c17c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f31bea00-69a6-41b8-ba81-0c6955a8bee0",
+            "Value": {
+                "id": "55cc7fd4-4849-4262-a411-4064dadcb5b5",
+                "resourcePath": "sprites\\spr_enemy\\spr_enemy.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
