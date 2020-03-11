@@ -1,6 +1,8 @@
 /// @description
 #macro S 16
 #macro cam view_camera[0]
+#macro width 550
+#macro height 350
 
 enum GAMESTATE {
 	normal,
@@ -51,6 +53,7 @@ generate_dungeon(10, 10, 30);
 generate_dungeon(20, 20, 40);
 generate_dungeon(20, 20, 50);
 generate_dungeon(20, 20, 60);
+
 generate_dungeon(20, 20, 70);
 generate_dungeon(20, 20, 80);
 generate_dungeon(20, 20, 90);
@@ -73,7 +76,20 @@ coin_fade = 0;
 //Menu
 menu_time = 0;
 
+//Battle menu
+battle_menu_time = 0;
+battle_menu_options = [
+	"Boost",
+	"Attack",
+	"Guard",
+	"Peek",
+];
+
 //Camera
 cam_x = draw_x - (camera_get_view_width(cam) / 2);
 cam_y = draw_y - (camera_get_view_height(cam)/ 2);
+cam_w = width;
+cam_h = height;
+cam_draw_w = cam_w;
+cam_draw_h = cam_h;
 camera_set_view_pos(cam, cam_x, cam_y);
