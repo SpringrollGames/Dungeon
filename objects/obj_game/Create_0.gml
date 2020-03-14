@@ -3,6 +3,8 @@
 #macro cam view_camera[0]
 #macro width 550
 #macro height 350
+#macro max_dungeons 100
+#macro log_size 100
 
 enum GAMESTATE {
 	normal,
@@ -53,7 +55,6 @@ generate_dungeon(10, 10, 30);
 generate_dungeon(20, 20, 40);
 generate_dungeon(20, 20, 50);
 generate_dungeon(20, 20, 60);
-
 generate_dungeon(20, 20, 70);
 generate_dungeon(20, 20, 80);
 generate_dungeon(20, 20, 90);
@@ -84,6 +85,9 @@ battle_menu_options = [
 	"Guard",
 	"Peek",
 ];
+
+//Message log
+messages = ds_list_create();
 
 //Camera
 cam_x = draw_x - (camera_get_view_width(cam) / 2);

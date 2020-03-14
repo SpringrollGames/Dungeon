@@ -39,11 +39,13 @@ switch(state) {
 					case TILE.door:
 						current_dungeon = min(ds_list_size(dungeons) - 1, current_dungeon + 1);
 						state = GAMESTATE.transition;
+						log("Floor " + string(current_dungeon + 1));
 						_breakout = true;
 						break;
 					case TILE.door_back:
 						current_dungeon = max(0, current_dungeon - 1);
 						state = GAMESTATE.transition;
+						log("Floor " + string(current_dungeon + 1));
 						_breakout = true;
 						break;
 					default: break;

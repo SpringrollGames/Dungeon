@@ -37,6 +37,17 @@ if (state == GAMESTATE.battle_menu || (state == GAMESTATE.normal && battle_menu_
 draw_set_alpha(1);
 draw_set_font(fnt_font);
 draw_set_halign(fa_left);
-draw_set_color(c_white);
 draw_set_color(merge_color($eeeeee, $62cc3b, coin_fade));
-draw_text(32, 32, "Money: " + string(coins));
+draw_text(48, 48, "Money: " + string(coins));
+
+//Message log
+draw_set_font(fnt_font);
+draw_set_halign(fa_left);
+draw_set_valign(fa_bottom);
+draw_set_color(c_ltgray);
+var _size = min(ds_list_size(messages), 10);
+for(var i = 0; i < _size; i++) {
+	draw_set_alpha(1 - (i / _size));
+	draw_text(48, _h - 48 - (i * 32), messages[| ds_list_size(messages) - 1 - i]);
+}
+draw_set_alpha(1);

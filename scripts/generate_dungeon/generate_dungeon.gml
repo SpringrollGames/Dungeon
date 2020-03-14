@@ -42,3 +42,6 @@ var _dungeon = [];
 _dungeon[DUNGEON.floorplan] = _a;
 _dungeon[DUNGEON.items] = _i;
 ds_list_add(dungeons, _dungeon);
+if (ds_list_size(dungeons) > max_dungeons) {
+	ds_list_delete(dungeons, 0);
+}
